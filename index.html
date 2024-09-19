@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axios Localhost API Call</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>Fetch Data from Local API</h1>
+    <button id="fetchButton">Fetch Data</button>
+    <pre id="output"></pre>
+
+    <script>
+      document
+        .getElementById("fetchButton")
+        .addEventListener("click", function () {
+          axios
+            .get("http://localhost:3003/api/messages")
+            .then(function (response) {
+              // Handle success
+              document.getElementById("output").textContent = JSON.stringify(
+                response.data,
+                null,
+                2
+              );
+            })
+            .catch(function (error) {
+              // Handle error
+              console.error("Error fetching data:", error);
+              document.getElementById("output").textContent =
+                "Error fetching data";
+            });
+        });
+    </script>
+  </body>
+</html>
