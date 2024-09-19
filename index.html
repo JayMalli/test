@@ -16,7 +16,7 @@
         .getElementById("fetchButton")
         .addEventListener("click", function () {
           axios
-            .get("http://localhost:5895/api/check_system")
+            .get("http://localhost:3003/api/messages")
             .then(function (response) {
               // Handle success
               document.getElementById("output").textContent = JSON.stringify(
